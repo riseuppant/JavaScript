@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap');
+html, body{
+    margin : 0;
+    font-family: "Libertinus Mono", monospace;
+}
+body{
+    background-image:url(../Elements/Pokemon_bg.jpg);
+    background-size:cover;
+    
+}
+#container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(0,0,0,0.5);
+    
+}
+
+#buttonLoad{
+        
+    font-size: large;
+}
+
+#pokemonSprite{
+    display: block;
+}
+
