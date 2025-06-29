@@ -1,0 +1,23 @@
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+
+#hour, #min, #sec, #date{
+    border: 3px solid black ;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white
+}

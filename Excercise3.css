@@ -1,0 +1,12 @@
+*{
+    padding: none;
+}
+
+
+.joke{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    margin: 400px;
+}
