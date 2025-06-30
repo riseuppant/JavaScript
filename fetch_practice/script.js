@@ -18,7 +18,7 @@ const fetchData=async(pokemonName)=>{
         const response = await fetch(url)
         if(!response.ok){
             throw new Error ("Could not fetch resource")
-        }
+        }88
         const data = await response.json();
         const pokemonSprite=data.sprites.front_default;
         const imageElement=document.getElementById("pokemonSprite")
