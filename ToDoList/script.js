@@ -26,7 +26,7 @@ const addItem=(task)=>{
     let menu=document.createElement("button")
     menu.innerHTML='<i class="fa-solid fa-ellipsis-vertical"></i>';
     let menuItems=document.createElement("div")
-    menuItems.innerHTML='<button style="all:unset" id="editBtn">Edit</button><div id="linebreak"></div><button style="all:unset" id="deleteBtn">Delete</button>';
+    menuItems.innerHTML='<button style="all:unset" id="editBtn">Edit<i class="fa-solid fa-pen-to-square"></i></button><div id="linebreak"></div><button style="all:unset" id="deleteBtn">Delete</button>';
     menuItems.setAttribute("hidden",true);
     
     menu.classList.add("sidemenu")
@@ -37,7 +37,7 @@ const addItem=(task)=>{
     let deleteBtn=document.getElementById("deleteBtn")
 
     editBtn.addEventListener("click",()=>{
-        click_editBtn(cardContent)})
+        click_editBtn(cardContent,task)})
 
     deleteBtn.addEventListener("click",()=>{
         click_deleteBtn(card,task)})
@@ -49,9 +49,14 @@ const addItem=(task)=>{
     })
 }
 
-click_editBtn= (cardContent)=>{
+click_editBtn= (cardContent,task)=>{
     let newName=prompt("Enter the Updated Task name");
     cardContent.innerHTML=newName
+    let index=todos.indexOf(task)
+    if(index!== -1){
+        todos[index]=newName
+        localStorage.setItem("todos",JSON.stringify(todos))
+    }
 }
 click_deleteBtn= (card,task)=>{
     card.remove();

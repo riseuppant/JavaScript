@@ -49,3 +49,7 @@
     height: 1px;
     width: 30px;
 }
+
+#editBtn{
+    display: inline;
+}
