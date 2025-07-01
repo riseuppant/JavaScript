@@ -23,18 +23,30 @@ const addItem=(task)=>{
     card.appendChild(cardContent)
     container.appendChild(card);
     
-    let menu=document.createElement("button")
+    let menu=document.createElement("div")
     menu.innerHTML='<i class="fa-solid fa-ellipsis-vertical"></i>';
-    let menuItems=document.createElement("div")
-    menuItems.innerHTML='<button style="all:unset" id="editBtn">Edit<i class="fa-solid fa-pen-to-square"></i></button><div id="linebreak"></div><button style="all:unset" id="deleteBtn">Delete</button>';
+
+    let menuItems=document.createElement("div");
+    let editBtn=document.createElement("button");
+    let deleteBtn=document.createElement("button");
+    let linebreak=document.createElement("div")
+
+    linebreak.classList.add("linebreak")
+    editBtn.classList.add("editBtn")
+    deleteBtn.classList.add("deleteBtn")
+
+    editBtn.innerHTML='Edit <i class="fa-solid fa-pen-to-square"></i>'
+    deleteBtn.innerHTML='Delete <i class="fa-solid fa-trash"></i>'
+    
+    menuItems.appendChild(editBtn)
+    menuItems.appendChild(linebreak)
+    menuItems.appendChild(deleteBtn)
     menuItems.setAttribute("hidden",true);
     
     menu.classList.add("sidemenu")
     menuItems.classList.add("menuItems")
     card.appendChild(menuItems)
     card.appendChild(menu)
-    let editBtn=document.getElementById("editBtn")
-    let deleteBtn=document.getElementById("deleteBtn")
 
     editBtn.addEventListener("click",()=>{
         click_editBtn(cardContent,task)})

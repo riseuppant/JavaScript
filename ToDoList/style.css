@@ -15,7 +15,7 @@
     border-radius: 10px;
 }
 .sidemenu{
-    color: white;
+    color: rgb(0, 0, 0);
     height: 20px;
     border:0;
     height: fit-content;
@@ -26,15 +26,12 @@
     border-radius: 50%;
     
 }
-.sidemenu i{
-    color:rgb(0, 0, 0);
-}
 .menuItems{
     position: absolute;
     background-color: rgba(255, 255, 255, 0.929);
     color: black;
     bottom: 30px;
-    padding: 1px;
+    padding: 3px;
     border-radius: 2px;
     right: 10px;
     display: flex;
@@ -42,14 +39,36 @@
     font-size: 10px;
     font-family:sans-serif;
     z-index: 1;
+    gap:2px;
     
 }
-#linebreak{
-    background-color:rgb(138, 134, 134);
+.linebreak{
+    background-color:rgba(0, 0, 0, 0.46);
     height: 1px;
-    width: 30px;
+    width: 40px;
 }
 
-#editBtn{
+.editBtn, .deleteBtn{
     display: inline;
+    all:unset;
+
+}
+.editBtn, .deleteBtn{
+    display: inline;
+    all:unset;
+
+}
+
+.editBtn:hover, .deleteBtn:hover{
+    color: rgba(0, 0, 0, 0.481);
+
+}
+
+.editBtn i{
+    position: absolute;
+    right: 4px;
+}
+.deleteBtn i{
+    position: absolute;
+    right: 4px;
 }
