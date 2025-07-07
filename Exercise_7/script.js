@@ -102,7 +102,7 @@ class Password {
   getMidPassword() {
     return createStrongPwd();
   }
-  getWeakPassword() {
+  async getWeakPassword() {
     return await createWeakPwd()
   }
   getFunnyPassword() {
