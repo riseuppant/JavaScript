@@ -14,7 +14,7 @@ const x={
         setTimeout(function(){
             console.log(this)
             console.log(`The name is ${this.name}\nThe role is ${this.role}`)
-        },2000
+        },2000 //Now for this function this is a window object and can be avoided by using arrow functions as they take a lexical this 
     )
     }
 }
