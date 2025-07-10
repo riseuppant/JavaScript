@@ -1,5 +1,1 @@
-createWeakPwd();
-createWeakPwd.then(()=>{
-    console.log(pwd)
-}
-)
+await getWeakPassword()

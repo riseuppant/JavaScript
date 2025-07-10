@@ -1,111 +1,62 @@
-class Password {
-  randomGenerator = async (min, max) => {
-    return Math.floor(Math.random() * (max - min) + min);
+const randomGenerator = async (min, max) => {
+  return Math.floor(Math.random() * (max - min) + min);
+};
+
+const charPosition = async (digits) => {
+  return await randomGenerator(0, digits);
+};
+
+const generateUpperCase = async () => {
+  return await randomGenerator(65, 91);
+};
+
+const generateLowerCase = async () => {
+  return await randomGenerator(97, 123);
+};
+
+const generateNumbers = async () => {
+  return await randomGenerator(48, 58);
+};
+
+const createWeakPwd = async () => {
+  const digits = 8;
+  const pwd = Array(digits).fill(undefined);
+
+  const generateSpecialChar = async () => {
+    const ranges = [
+      [33, 48],
+      [58, 65],
+      [91, 97],
+      [123, 127],
+    ];
+    const range = ranges[await randomGenerator(0, ranges.length)];
+    return await randomGenerator(range[0], range[1]);
   };
-  charPosition = async () => {
-    let charPosition = await randomGenerator(0, digits);
-    // console.log(charPosition)
-    return charPosition;
+
+  const setCharacter = async (generatorFunc) => {
+    if (!pwd.includes(undefined)) return;
+    const position = await charPosition(digits);
+    if (pwd[position] === undefined) {
+      pwd[position] = String.fromCharCode(await generatorFunc());
+    } else {
+      await setCharacter(generatorFunc);
+    }
   };
 
-  generateUpperCase = async () => {
-    let char = await randomGenerator(65, 91);
-    // console.log(char)
-    return char;
+  const buildWeakPwd = async () => {
+    await setCharacter(generateUpperCase);
+    await setCharacter(generateUpperCase);
+    await setCharacter(generateLowerCase);
+    await setCharacter(generateLowerCase);
+    await setCharacter(generateNumbers);
+    await setCharacter(generateNumbers);
+    while (pwd.includes(undefined)) {
+      await setCharacter(generateSpecialChar);
+    }
   };
 
-  generateLowerCase = async () => {
-    let Char = await randomGenerator(65, 91);
-    return Char;
-  };
-
-  generateNumbers = async () => {
-    return await randomGenerator(48, 58);
-  };
-  createWeakPwd = () => {
-    let digits = 8;
-    let pwd = Array(8).fill(undefined);
-
-    const generateSpecialChar = async () => {
-      const ranges = [
-        [33, 48],
-        [58, 65],
-        [91, 97],
-        [123, 127],
-      ];
-      let range = ranges[await randomGenerator(0, 4)];
-      return await randomGenerator(range[0], range[1]);
-    };
-
-    const setUpperCase = async () => {
-      let position = await charPosition();
-      if (!pwd.includes(undefined)) {
-        return;
-      }
-      if (pwd[position] == undefined) {
-        pwd[position] = String.fromCharCode(await generateUpperCase());
-      } else {
-        await setUpperCase();
-      }
-    };
-    const setLowerCase = async () => {
-      let position = await charPosition();
-      if (!pwd.includes(undefined)) {
-        return;
-      }
-      if (pwd[position] == undefined) {
-        pwd[position] = String.fromCharCode(await generateLowerCase());
-      } else {
-        await setLowerCase();
-      }
-    };
-
-    const setNumbers = async () => {
-      let position = await charPosition();
-      if (!pwd.includes(undefined)) {
-        return;
-      }
-      if (pwd[position] == undefined) {
-        pwd[position] = String.fromCharCode(await generateNumbers());
-      } else {
-        await setNumbers();
-      }
-    };
-
-    const setSpecialChar = async () => {
-      let position = await charPosition();
-      if (!pwd.includes(undefined)) {
-        return;
-      }
-      if (pwd[position] == undefined) {
-        pwd[position] = String.fromCharCode(await generateSpecialChar());
-      } else {
-        setSpecialChar();
-      }
-    };
-    const buildWeakPwd = async () => {
-      await setUpperCase();
-      await setUpperCase();
-      await setLowerCase();
-      await setLowerCase();
-      await setNumbers();
-      await setNumbers();
-      while (pwd.includes(undefined)) {
-        await setSpecialChar();
-      }
-    };
-    return pwd.join("")
-    };
-  getStrongPassword() {
-    return createSuperStrongPwd();
-  }
-  getMidPassword() {
-    return createStrongPwd();
-  }
-  async getWeakPassword() {
-    return await createWeakPwd()
-  }
-  getFunnyPassword() {
-    return createFunnyPwd();
-  }
-}
+  await buildWeakPwd();
+  return pwd.join('');
+};
+const getWeakPassword = async () => await createWeakPwd();
+const pwd = await getWeakPassword();
