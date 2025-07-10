@@ -11,3 +11,7 @@ logs
 # Ignore build outputs
 dist/
 build/
+
+#Ignore Package.json and other files
+package.json
+package-lock.json
