@@ -2,10 +2,33 @@
     font-family: 'MyCustomFont';
     src:url('/Elements/Seven\ Segment.ttf')
 }
+*{
+    margin:0px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255) ;
+    font-size: 12px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.599);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navItems:hover{
+    text-decoration: underline rgb(0, 0, 0);
+}
+nav h1{
+    margin-right: 400px;
+    font-size: 20px;
+    padding: 5px;
+}
+nav li , a{
+    list-style-type: none;
+}
 .container{
     display: flex;
     justify-content: center;
-
+    margin-top:100px
 }
 .timeBox{
     height: 60px;
@@ -14,6 +37,8 @@
 input[type="text"]{
     height:50px ;
     font-family: "MyCustomFont",sans-serif;
+    font-weight: bold;
+    
 }
 .timeBox button{
     border-radius: 0;

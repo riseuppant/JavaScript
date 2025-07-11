@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <header>
+        <nav>
+            <h1>Alarm Clock</h1>
+            <li id="about" class="navItems">About Me</li>
+            <a id="code"  class="navItems" href="https://github.com/riseuppant/JavaScript/tree/main/Exercise_7" style="color: black;" target="_blank">Source Code</a>
+            <button id="theme">
+                <i class="fa-solid fa-sun"></i>
+                <i class="fa-solid fa-moon" hidden></i>
+            </button>
+        </nav>
+    </header>
+
     <div class="container">
         <div id="hours" style="display: flex; flex-direction: column;" class="timeBox">
             <button class="add"><i class="fa-solid fa-caret-up"></i></button>
@@ -21,7 +33,7 @@
         </div>
         <div id="day" style="display: flex; flex-direction: column;"class="timeBox">
             <button class="add"><i class="fa-solid fa-caret-up"></i></button>
-            <input type="text" placeholder="HH" style="text-align: center;">
+            <input type="text" placeholder="AM" style="text-align: center;">
             <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
         </div>
     </div>
