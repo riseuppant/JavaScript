@@ -1,0 +1,16 @@
+@font-face{
+    font-family: 'MyCustomFont';
+    src:url('/Elements/Seven\ Segment.ttf')
+}
+#hours{
+    height: fit-content;
+    width: 40px;
+}
+#hours button{
+    border-radius: 0;
+    height: 15px;
+    
+}
+input[type="text"]{
+    font-family: "MyCustomFont",sans-serif;
+}
