@@ -21,7 +21,7 @@ const generateNumbers = async () => {
 const createWeakPwd = async () => {
   const digits = 8;
   const pwd = Array(digits).fill(undefined);
-
+  
   const generateSpecialChar = async () => {
     const ranges = [
       [33, 48],
@@ -32,7 +32,7 @@ const createWeakPwd = async () => {
     const range = ranges[await randomGenerator(0, ranges.length)];
     return await randomGenerator(range[0], range[1]);
   };
-
+  
   const setCharacter = async (generatorFunc) => {
     if (!pwd.includes(undefined)) return;
     const position = await charPosition(digits);
@@ -42,7 +42,7 @@ const createWeakPwd = async () => {
       await setCharacter(generatorFunc);
     }
   };
-
+  
   const buildWeakPwd = async () => {
     await setCharacter(generateUpperCase);
     await setCharacter(generateUpperCase);
@@ -54,9 +54,16 @@ const createWeakPwd = async () => {
       await setCharacter(generateSpecialChar);
     }
   };
-
+  
   await buildWeakPwd();
   return pwd.join('');
 };
 const getWeakPassword = async () => await createWeakPwd();
 const pwd = await getWeakPassword();
+let genPwd = document.querySelector(".genPwd");
+let container= document.getElementById("landingContainer")
+
+genPwd.addEventListener('click', () => {
+  container.style.display = "none";
+  console.log("Clicked")
+});
