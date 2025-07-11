@@ -8,7 +8,7 @@ body{
     background-repeat: no-repeat;
     height: 100vh;
 }
-#landingContainer{
+#landingContainer, .landingbox{
     height: fit-content;
     width: fit-content;
     display: flex;
@@ -47,6 +47,11 @@ body{
     color: white;
     transform: translateX(3px);
 }
+#finalBtn{
+
+    margin-left: 40px;
+    margin-top: 10px;
+}
 @keyframes slide-in {
   0% {
     transform: translateX(50px);
@@ -56,4 +61,21 @@ body{
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+#outercircle{
+    border-radius: 50%;
+    background: linear-gradient(180deg, blue , white);
+    animation: loaderAnimation 1s linear infinite;
+}
+ #innercircle{
+    border-radius: 50%;
+}
+@keyframes loaderAnimation{
+    0%{
+        transform : rotate(0deg)
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }

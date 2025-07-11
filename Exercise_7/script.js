@@ -61,9 +61,22 @@ const createWeakPwd = async () => {
 const getWeakPassword = async () => await createWeakPwd();
 const pwd = await getWeakPassword();
 let genPwd = document.querySelector(".genPwd");
-let container= document.getElementById("landingContainer")
-
+let container= document.getElementById("landingContainer");
+let passwordType= document.getElementById("passwordType")
+let finalBtn=document.getElementById("finalBtn")
 genPwd.addEventListener('click', () => {
   container.style.display = "none";
   console.log("Clicked")
+  passwordType.removeAttribute("hidden")
+  passwordType.classList.add("landingbox")
+  passwordType.style.display="block"
 });
+finalBtn.classList.add("genPwd")
+finalBtn.addEventListener("click",()=>{
+  passwordType.style.display="none";
+  const selected=document.querySelector('input[name="pwdType"]:checked')
+  if(selected){
+    console.log(selected.value)
+  }
+  
+})
