@@ -1,14 +1,18 @@
 import PDFMerger from 'pdf-merger-js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-var merger = new PDFMerger();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-(async (p1,p2) => {
-  await merger.add('1.pdf');  //merge all pages. parameter is the path to file and filename.
-  await merger.add('2.pdf', 2); // merge only page 2
-   // Set metadata
-  await merger.save('merged.pdf'); //save under given name and reset the internal document
-  
-  // Export the merged PDF as a nodejs Buffer
-  // const mergedPdfBuffer = await merger.saveAsBuffer();
-  // fs.writeSync('merged.pdf', mergedPdfBuffer);
-})();
+const mergePdfs = async (p1, p2) => {
+  const merger = new PDFMerger();
+
+  await merger.add(p1);
+  await merger.add(p2);
+
+  await merger.save('public/merged.pdf');
+};
+
+export { mergePdfs };
