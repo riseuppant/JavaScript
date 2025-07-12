@@ -1,8 +1,7 @@
 //Text Fields
-let hours = document.getElementsByTagName("input")[0];
-let minutes = document.getElementsByTagName("input")[1];
-let day = document.getElementsByTagName("input")[2];
-
+let hours = document.querySelector("#hours input");
+let minutes = document.querySelector("#minutes input");
+let day = document.querySelector("#day input");
 //Buttons
 let hours_add = document.getElementsByTagName("button")[1];
 let hours_sub = document.getElementsByTagName("button")[2];
@@ -14,6 +13,12 @@ let timeofDay_add = document.getElementsByTagName("button")[5];
 let timeofDay_sub = document.getElementsByTagName("button")[6];
 
 let setAlarm = document.querySelector(".setAlarm");
+
+//Date Fields
+let date = document.getElementById("date");
+
+//Alarm
+const alarmAudio = document.getElementById("alarmSound");
 
 //Checking and pushing the input values to bound if entered out of bound
 // if(hours.value>"12")hours.value="12"
@@ -100,20 +105,34 @@ setAlarm.addEventListener("click", () => {
     minutes: minutes.value,
     timeofDay: day.value,
   };
-
-  if(day.value==="PM"){
-    let conversion=parseInt(hours.value)
-    conversion+=12
-    alarm.hour=`${conversion}`
-  }
-  console.log(alarm)
-  setInterval(() => {
-    let curTime=new Date()
-    let curHours=curTime.getHours()
-    let curMin=curTime.getMinutes()
-    if(curHours==parseInt(alarm.hour) && curMin==parseInt(alarm.minutes))
-    {
-        console.log("WakeUP")
+  if (alarm.hour != "" && alarm.minutes != "" && alarm.timeofDay != "") {
+    if (day.value === "PM") {
+      let conversion = parseInt(hours.value);
+      conversion += 12;
+      alarm.hour = `${conversion}`;
     }
-  },1000);
+    // let [year,month,day_date]=date.split("-");
+    setInterval(() => {
+      let curTime = new Date();
+      let curHours = curTime.getHours();
+      let curMin = curTime.getMinutes();
+      let curDate = curTime.getDate();
+      let curMon=curTime.getMonth();
+      let curYear=curTime.getFullYear();
+      // if(curYear>year){
+      //   console.error("You are living in the past")
+      // }
+      // if(!(curYear< year && curMon<month))
+      if (
+        curHours == parseInt(alarm.hour) &&
+        curMin == parseInt(alarm.minutes)
+      ) {
+        if (alarmAudio && typeof alarmAudio .play === "function") {
+          alarmAudio.play().catch((err) => console.log("Audio error:", err));
+        } else {
+          alarmAudio.play();
+        }
+      }
+    }, 1000);
+  }
 });

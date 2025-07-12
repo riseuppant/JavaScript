@@ -19,25 +19,29 @@
             </button>
         </nav>
     </header>
+    <main>
 
-    <div class="container">
-        <div id="hours" style="display: flex; flex-direction: column;" class="timeBox">
-            <button class="add"><i class="fa-solid fa-caret-up"></i></button>
-            <input type="text" placeholder="HH" style="text-align: center;">
-            <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
+        <div class="container">
+            <div id="hours" style="display: flex; flex-direction: column;" class="timeBox">
+                <button class="add"><i class="fa-solid fa-caret-up"></i></button>
+                <input type="text" placeholder="HH" style="text-align: center;">
+                <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
+            <div id="minutes" style="display: flex; flex-direction: column;"class="timeBox">
+                <button class="add"><i class="fa-solid fa-caret-up"></i></button>
+                <input type="text" placeholder="MM" style="text-align: center;">
+                <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
+            <div id="day" style="display: flex; flex-direction: column;"class="timeBox">
+                <button class="add"><i class="fa-solid fa-caret-up"></i></button>
+                <input type="text" placeholder="AM" style="text-align: center;">
+                <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
         </div>
-        <div id="minutes" style="display: flex; flex-direction: column;"class="timeBox">
-            <button class="add"><i class="fa-solid fa-caret-up"></i></button>
-            <input type="text" placeholder="MM" style="text-align: center;">
-            <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
-        </div>
-        <div id="day" style="display: flex; flex-direction: column;"class="timeBox">
-            <button class="add"><i class="fa-solid fa-caret-up"></i></button>
-            <input type="text" placeholder="AM" style="text-align: center;">
-            <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
-        </div>
-    </div>
-    <button class="setAlarm">Set Alarm</button>
-    <script src="script.js"></script>
-</body>
-</html>
+        <input type="datetime-local" placeholder="Enter Date" id="date">
+        <button class="setAlarm">Set Alarm</button>
+    </main>
+        <audio id="alarmSound" src="/Elements/alarm-clock-short-6402.mp3" preload="auto" loop></audio>
+        <script src="script.js"></script>
+    </body>
+    </html>
