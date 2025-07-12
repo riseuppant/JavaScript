@@ -15,7 +15,7 @@ let timeofDay_sub = document.getElementsByTagName("button")[6];
 let setAlarm = document.querySelector(".setAlarm");
 
 //Date Fields
-let date = document.getElementById("date");
+let alarmDate = document.getElementById("alarmDate");
 
 //Alarm
 const alarmAudio = document.getElementById("alarmSound");
@@ -111,18 +111,29 @@ setAlarm.addEventListener("click", () => {
       conversion += 12;
       alarm.hour = `${conversion}`;
     }
-    // let [year,month,day_date]=date.split("-");
     setInterval(() => {
       let curTime = new Date();
+      let [year,month,day_date]=(alarmDate.value).split("-");
       let curHours = curTime.getHours();
       let curMin = curTime.getMinutes();
       let curDate = curTime.getDate();
-      let curMon=curTime.getMonth();
+      let curMon=(curTime.getMonth())+1;
       let curYear=curTime.getFullYear();
-      // if(curYear>year){
-      //   console.error("You are living in the past")
-      // }
-      // if(!(curYear< year && curMon<month))
+      year = parseInt(year);
+      month = parseInt(month);
+      day_date = parseInt(day_date);
+      if(curYear>year){
+        console.error("You are living in the past")
+        return;
+      }
+      if(curYear == year && curMon>month){
+        console.log("Error in month")
+        return;
+      }
+      if(curYear == year && curMon==month && curDate>date){
+        console.error("Error in Date")
+        return
+      }
       if (
         curHours == parseInt(alarm.hour) &&
         curMin == parseInt(alarm.minutes)

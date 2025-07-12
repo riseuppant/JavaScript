@@ -38,7 +38,10 @@
                 <button class="subtract"><i class="fa-solid fa-caret-down"></i></button>
             </div>
         </div>
-        <input type="datetime-local" placeholder="Enter Date" id="date">
+        <div class="dateHolder">
+            <label for="alarmDate" >Select Date</label>
+            <input type="date" placeholder="Enter Date" id="alarmDate">
+        </div>
         <button class="setAlarm">Set Alarm</button>
     </main>
         <audio id="alarmSound" src="/Elements/alarm-clock-short-6402.mp3" preload="auto" loop></audio>
