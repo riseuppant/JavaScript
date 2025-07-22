@@ -9,31 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="displayContainer">
-        <input type="text" id="display" readonly>
+    <div id="calculatorBox">
+        <div class="displayContainer">
+            <input type="text" id="display" readonly>
+        </div>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="clearOne()"><i class="fa-solid fa-delete-left fa-2xl"></i></button>
+            <button class="spc" onclick="toPercentage()">%</button>
+            <button class="spc" onclick="clearHistory()">AC</button>
+            <button class="num" onclick="appendToDisplay('7')">7</button>
+            <button class="num" onclick="appendToDisplay('8')">8</button>
+            <button class="num" onclick="appendToDisplay('9')">9</button>
+            <button class="spc" onclick="appendToDisplay('+')">+</button>
+            <button class="num" onclick="appendToDisplay('4')">4</button>
+            <button class="num" onclick="appendToDisplay('5')">5</button>
+            <button class="num" onclick="appendToDisplay('6')">6</button>
+            <button class="spc" onclick="appendToDisplay('-')">-</button>
+            <button class="num" onclick="appendToDisplay('1')">1</button>
+            <button class="num" onclick="appendToDisplay('2')">2</button>
+            <button class="num" onclick="appendToDisplay('3')">3</button>
+            <button class="spc" onclick="appendToDisplay('*')">*</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button class="num" onclick="appendToDisplay('0')">0</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendToDisplay('/')">/</button>
     </div>
-    <div class="buttons">
-        <button onclick="">C</button>
-        <button onclick=""><i class="fa-solid fa-delete-left fa-2xl"></i></button>
-        <button onclick="">%</button>
-        <button onclick="">AC</button>
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="appendToDisplay('4')">4</button>
-        <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('1')">1</button>
-        <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('3')">3</button>
-        <button onclick="appendToDisplay('*')">*</button>
-        <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('.')">.</button>
-        <button onclick="appendToDisplay('=')">=</button>
-        <button onclick="appendToDisplay('/')">/</button>
-    </div>
-    <script src="script.js"></script>
+        </div>
+        <div id="historyContainer">
+            <h3>History</h3>
+        </div>
+        <script src="script.js"></script>
 </body>
 </html>
