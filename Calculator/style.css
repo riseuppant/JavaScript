@@ -17,6 +17,13 @@ button{
     text-align: center;
     margin: 1.5px;
 }
+input{
+    all:unset;
+    background: white;
+    text-align: right;
+    width: 415px;
+    padding: 10px;
+}
 .buttons{
     display: flex ;
     background-color: rgba(255, 255, 255, 0.79);
@@ -26,18 +33,18 @@ button{
     border-radius: 10px;
     box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.362);
     justify-content: center;
-    padding: 10px;
 }
 #display{
     font-size: 32px;
     margin-bottom: 5px;
     border-radius: 10px;
 }
-#calculatorBox{
-    
-}
 #historyContainer{
-    
+}
+#historyContainer div{
+    background-color: white;
+    width: 500px;
+    height: 40px;
 }
 .num{
     font-weight:550;
@@ -49,4 +56,3 @@ button{
     background-color: rgb(255, 204, 84);
     color: rgb(0, 0, 0);
 }
-

@@ -1,4 +1,5 @@
 let display= document.getElementById("display")
+let sol=document.getElementById("solnReal")
 console.log(display.value)
 const appendToDisplay =(char)=>{
     display.value+=char
@@ -30,3 +31,8 @@ let toPercentage=()=>{
     display.value=`${a}`
 }
 
+let calculate=()=>{
+    display.value=eval(display.value)
+}
+
+let
