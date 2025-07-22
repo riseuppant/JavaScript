@@ -2,7 +2,6 @@ let display= document.getElementById("display")
 let sol=document.getElementById("solnReal")
 let historyContainer=document.getElementById("historyContainer")
 
-
 console.log(display.value)
 const appendToDisplay =(char)=>{
     display.value+=char
@@ -14,19 +13,12 @@ let clearOne=()=>{
         display.value=display.value.slice(0,display.value.length-1)
         console.log(display.value.length)
     }
-    
-    else{
-        display.value="ERROR"
-    }
 }
 
 let clearDisplay=()=>{
     console.log("Log cleared");
     if(display.value!='')
     display.value=""
-    else{
-        display.value="LOG ALREADY CLEARED"
-    }
 }
 
 let toPercentage=()=>{
@@ -58,12 +50,12 @@ let calculate=async()=>{
             display.value=historyBox.innerHTML
         }
     })
-    historyContainer.appendChild(historyBox)
+    historyContainer.prepend(historyBox)
 }
 
 let clearHistory=()=>{
-    while(historyContainer.firstChild){
+    while(historyContainer.firstElementChild){
         console.log(historyContainer.firstChild);
-        historyContainer.removeChild(historyContainer.firstChild)
+        historyContainer.removeChild(historyContainer.firstElementChild)
     }
 }
