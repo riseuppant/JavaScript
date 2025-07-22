@@ -61,3 +61,9 @@ let calculate=async()=>{
     historyContainer.appendChild(historyBox)
 }
 
+let clearHistory=()=>{
+    while(historyContainer.firstChild){
+        console.log(historyContainer.firstChild);
+        historyContainer.removeChild(historyContainer.firstChild)
+    }
+}

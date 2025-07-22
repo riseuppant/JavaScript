@@ -42,7 +42,9 @@ input{
 #historyContainer{
     display: flex;
     flex-direction: column;
-
+    flex-shrink: unset;
+    height: 600px;
+    overflow:auto;
 }
 #historyContainer button{
     all:unset;
@@ -63,4 +65,5 @@ input{
 .spc{
     background-color: rgb(255, 204, 84);
     color: rgb(0, 0, 0);
+    
 }
