@@ -59,3 +59,7 @@ let clearHistory=()=>{
         historyContainer.removeChild(historyContainer.firstElementChild)
     }
 }
+display.addEventListener("keypress",(e)=>{
+    if(e.key==="Enter")
+        calculate()
+})
