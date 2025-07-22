@@ -40,11 +40,19 @@ input{
     border-radius: 10px;
 }
 #historyContainer{
+    display: flex;
+    flex-direction: column;
+
 }
-#historyContainer div{
+#historyContainer button{
+    all:unset;
     background-color: white;
     width: 500px;
     height: 40px;
+    padding: 5px;
+    margin-top:4px;
+    display: flex;
+    align-items: center;
 }
 .num{
     font-weight:550;
