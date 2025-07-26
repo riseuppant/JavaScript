@@ -1,0 +1,86 @@
+/* can change to block or inline too 
+0 par keyframes rhega when no scroll started */
+/* #scrollWatcher{
+    position:fixed;
+    top: 0px;
+    z-index: 1000;
+    height: 20px;
+    width: 100%;
+    background-color: lime;
+    scale: 0 1;
+    animation: scroll-watcher linear;
+    transform-origin: left;
+    animation-timeline: scroll(root);
+
+}
+
+@keyframes scroll-watcher{
+    to {scale: 1 1;}
+} */
+
+
+/* animation-range-start: contain;
+animation-range-end: contain; */
+/* div > img{
+    animation : fade-in linear forwards;
+    animation-timeline: view();
+    animation-range: entry 500px;
+}
+@keyframes fade-in{
+    from {scale : 0.8 ; opacity: 0;}
+    to{scale: 1; opacity: 1;}
+} */
+body{
+    background-color: rgb(4, 3, 38);
+    display: flex;
+    height:100vh;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.content-wrapper{
+    display: flex;
+    background: black;
+    color: white;
+    flex-direction: row;
+}
+
+.content-wrapper > div{
+    width: fit-content;
+    box-sizing: border-box;
+    padding: 13px;
+    margin: 1.6rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgb(255, 255, 255,0.5);
+}
+
+.scroller[data-animated="true"]{
+    overflow:hidden;
+    overflow-x: scroll;
+    -webkit-mask:linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+    );
+}
+.scroller[data-direction="right"] {
+    width: max-content;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    animation: scrolling linear 60s;
+    animation-timeline: scroll();
+}
+.scroller[data-direction="right"] {
+    animation-direction: reverse;
+}
+
+@keyframes scrolling {
+    to{
+        transform: translate(calc(-50% - 0.5rem));
+    }
+}
