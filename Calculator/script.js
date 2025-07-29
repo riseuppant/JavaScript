@@ -38,6 +38,7 @@ let calculate=async()=>{
     display.value=eval(display.value)
     
     let historyBox=document.createElement("button")
+    historyBox.className="element"
     
     await setName(backDisp , historyBox)
     

@@ -1,0 +1,37 @@
+body{
+    background: white;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    height: 400px;
+    position: relative;
+    width: 500px;
+    box-sizing: border-box;
+    background: #000;
+    color: white;
+    padding: 50px;
+    margin: 5px;
+    border-radius: 15px;
+    text-align: center;
+}
+.card h1{
+    margin-top: 5px;
+}
+.card::after {
+    content: '';
+background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);  
+     position: absolute;
+    padding: 5px;
+    height: 400px;
+    width: 500px;
+    background-color: red;
+    top:50%;
+    z-index: -1;
+    left: 50%;
+    translate: -50% -50%;
+    
+}
