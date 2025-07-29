@@ -5,6 +5,7 @@ body{
     height: 100vh;
     align-items: center;
     justify-content: center;
+    background: #010111;
 }
 .card{
     height: 400px;
@@ -21,17 +22,38 @@ body{
 .card h1{
     margin-top: 5px;
 }
-.card::after {
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.card::after , .card::before{
     content: '';
-background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);  
-     position: absolute;
+    /* --angle: 0 deg; */
+    /* background-image: conic-gradient(#ff0000, #ff8000, #00ff00, #0080ff, #0000ff,#ff0000);   */
+    background-image: conic-gradient(from var(--angle) , transparent 70%, blue);
+    position: absolute;
     padding: 5px;
     height: 400px;
     width: 500px;
-    background-color: red;
+    /* background-color: red; */
     top:50%;
     z-index: -1;
     left: 50%;
     translate: -50% -50%;
-    
+    border-radius: 15px;  
+    animation: spin 3s linear infinite;
+}
+/* to add adnimation cant do directly using variables so use property thing */
+@keyframes spin{
+    from{--angle:0deg;}
+    to{
+        --angle:360deg;
+    }
+}
+/* :: These are called pseudo elements */
+.card::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
